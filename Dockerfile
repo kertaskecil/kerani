@@ -26,9 +26,10 @@ RUN addgroup -g 1000 -S $GROUP \
 WORKDIR $CODE_DIR
 
 # Install dependencies
-COPY --chown=$USERNAME:$GROUP requirements-dev.txt $CODE_DIR/
+COPY --chown=$USERNAME:$GROUP requirements.txt requirements-dev.txt $CODE_DIR/
 
-RUN pip install -r requirements.txt
+RUN pip install pip-tools
+RUN pip-sync requirements.txt requirements-dev.txt
 RUN apk --purge del .build-deps
 
 USER $USERNAME

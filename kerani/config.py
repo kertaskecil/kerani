@@ -1,3 +1,4 @@
 KAFKA_BOOTSTRAP_SERVERS = [
-    'kafka:9092',
+    "kafka:9092",
 ]
+CORS_ALLOW_ORIGINS = ["*"]
