@@ -51,7 +51,7 @@ def test_publish_event_when_key_not_found():
     payload = {"others": "value"}
     with TestClient(app) as client:
         resp = client.post("/api/v1/events", json=payload)
-        expected_resp = {"status": "error", "detail": "Request ID not found"}
+        expected_resp = {"status": "error", "detail": "events not found"}
         assert resp.status_code == status.HTTP_400_BAD_REQUEST
         assert resp.json() == expected_resp
 

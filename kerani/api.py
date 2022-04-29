@@ -20,7 +20,7 @@ async def events(request):
         message = {"status": "error", "detail": "Unable to parse body"}
         return JSONResponse(message, status_code=HTTP_400_BAD_REQUEST)
     except KeyError:
-        message = {"status": "error", "detail": "Request ID not found"}
+        message = {"status": "error", "detail": "events not found"}
         return JSONResponse(message, status_code=HTTP_400_BAD_REQUEST)
 
     task = BackgroundTask(publish_to_kafka, data)
