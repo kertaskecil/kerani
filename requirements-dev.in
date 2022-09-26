@@ -5,3 +5,4 @@ pytest
 black
 isort
 flake8
+pip-tools~=6.6.0
